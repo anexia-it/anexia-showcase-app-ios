@@ -49,7 +49,6 @@
 		A2A400DB22259E010043B98F /* BridgeConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A400D722259E010043B98F /* BridgeConnectionViewModel.swift */; };
 		A2A400DC22259E010043B98F /* BridgeConnectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A400D822259E010043B98F /* BridgeConnectionBuilder.swift */; };
 		A2A400DD22259E010043B98F /* BridgeConnectionNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A400D922259E010043B98F /* BridgeConnectionNavigator.swift */; };
-		A2BFDB15223152D90044A2CB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A2BFDB14223152D90044A2CB /* LICENSE */; };
 		A2D936F021E77F8100863F72 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D936EF21E77F8100863F72 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
@@ -128,7 +127,6 @@
 		A2A400D722259E010043B98F /* BridgeConnectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeConnectionViewModel.swift; sourceTree = "<group>"; };
 		A2A400D822259E010043B98F /* BridgeConnectionBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeConnectionBuilder.swift; sourceTree = "<group>"; };
 		A2A400D922259E010043B98F /* BridgeConnectionNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeConnectionNavigator.swift; sourceTree = "<group>"; };
-		A2BFDB14223152D90044A2CB /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A2D936EF21E77F8100863F72 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B60B76D105855177F1C8A628 /* Pods-FaceAnalysisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceAnalysisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceAnalysisTests/Pods-FaceAnalysisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0E5BDE13960862032BBB033 /* Pods-FaceAnalysis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceAnalysis.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceAnalysis/Pods-FaceAnalysis.release.xcconfig"; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 				1D2B4B972190248C0082179C /* LaunchScreen.storyboard */,
 				1D2B4B9A2190248C0082179C /* Info.plist */,
 				A22640F322294CDE00396476 /* Config.plist */,
-				A2BFDB14223152D90044A2CB /* LICENSE */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -521,7 +518,6 @@
 			files = (
 				1D2B4B992190248C0082179C /* LaunchScreen.storyboard in Resources */,
 				1D2B4B962190248C0082179C /* Assets.xcassets in Resources */,
-				A2BFDB15223152D90044A2CB /* LICENSE in Resources */,
 				1DB08D1A21905578009280F6 /* TextOverlayView.xib in Resources */,
 				A22640F422294CDE00396476 /* Config.plist in Resources */,
 				1D2B4B942190248A0082179C /* Main.storyboard in Resources */,
