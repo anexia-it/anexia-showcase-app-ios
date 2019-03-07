@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Face Camera View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="FaceCameraViewController" customModule="FaceAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aks-Ek-odm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="S5R-c9-HwZ" customClass="DesignableActivityIndicator" customModule="FaceAnalysis" customModuleProvider="target">
+                                <rect key="frame" x="169" y="387.66666666666669" width="37" height="37"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZv-DV-hRz" customClass="DesignableButton" customModule="FaceAnalysis" customModuleProvider="target">
+                                <rect key="frame" x="314" y="709.66666666666663" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Zr4-LG-Wbz"/>
+                                    <constraint firstAttribute="width" constant="45" id="kDn-nI-aeS"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0061910371300000003" green="0.23459228870000001" blue="0.49773442750000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="camera-switch-white"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="switchCameraButtonClicked" destination="BYZ-38-t0r" eventType="touchDown" id="iLd-UU-6ti"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15s-0P-dKf" userLabel="SquareOverlay">
+                                <rect key="frame" x="30" y="248.66666666666663" width="315" height="315"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="15s-0P-dKf" secondAttribute="height" multiplier="1:1" id="7WM-gD-MU3"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="pNz-Mg-1jd"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zD-f2-YJG" customClass="DesignableButton" customModule="FaceAnalysis" customModuleProvider="target">
+                                <rect key="frame" x="157.66666666666666" y="702" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Sfu-C1-WeB"/>
+                                    <constraint firstAttribute="height" constant="60" id="nlq-aX-XGD"/>
+                                </constraints>
+                                <state key="normal" image="camera-capture-white-full"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="1" alpha="0.71730522259999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="captureButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="xCm-6O-Ugf"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sih-M0-dCv" customClass="DesignableButton" customModule="FaceAnalysis" customModuleProvider="target">
+                                <rect key="frame" x="334" y="60" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="BgM-qf-cQu"/>
+                                    <constraint firstAttribute="height" constant="25" id="vnw-Hk-qSd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" image="restart-icon-18-256">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="retakeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0lt-wx-g0X"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iox-tL-pI9" customClass="DesignableButton" customModule="FaceAnalysis" customModuleProvider="target">
+                                <rect key="frame" x="218" y="58.666666666666657" width="28" height="28"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="3E8-bO-xav"/>
+                                    <constraint firstAttribute="height" constant="28" id="CoO-6r-IwQ"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="-1" maxY="-2"/>
+                                <state key="normal" image="icons8-share-rounded-90"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="shareButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uvs-RZ-qfO"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5T-g8-DaN" customClass="DesignableButton" customModule="FaceAnalysis" customModuleProvider="target">
+                                <rect key="frame" x="276" y="58.666666666666657" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="2Vo-kc-kHm"/>
+                                    <constraint firstAttribute="width" constant="28" id="zmk-o1-RW2"/>
+                                </constraints>
+                                <state key="normal" image="idea-256"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="philipsHueButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OWe-g3-KAM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="15s-0P-dKf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2fO-SM-ldw"/>
+                            <constraint firstItem="S5R-c9-HwZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9AK-re-z7Z"/>
+                            <constraint firstItem="c5T-g8-DaN" firstAttribute="top" secondItem="iox-tL-pI9" secondAttribute="top" id="AgV-wV-xZM"/>
+                            <constraint firstItem="aks-Ek-odm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="BP9-Iy-IdP"/>
+                            <constraint firstItem="pZv-DV-hRz" firstAttribute="centerY" secondItem="3zD-f2-YJG" secondAttribute="centerY" id="Fxm-v9-80b"/>
+                            <constraint firstItem="zxW-kO-OaS" firstAttribute="trailing" secondItem="sih-M0-dCv" secondAttribute="trailing" constant="16" id="I0G-C4-Lic"/>
+                            <constraint firstItem="sih-M0-dCv" firstAttribute="leading" secondItem="c5T-g8-DaN" secondAttribute="trailing" constant="30" id="JAr-rV-iVE"/>
+                            <constraint firstItem="aks-Ek-odm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Jes-sh-pVx"/>
+                            <constraint firstItem="S5R-c9-HwZ" firstAttribute="centerX" secondItem="zxW-kO-OaS" secondAttribute="centerX" id="O6i-Kd-FQj"/>
+                            <constraint firstItem="zxW-kO-OaS" firstAttribute="trailing" secondItem="pZv-DV-hRz" secondAttribute="trailing" constant="16" id="SAC-Xw-Ne8"/>
+                            <constraint firstItem="aks-Ek-odm" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="SEo-GU-MRA"/>
+                            <constraint firstItem="zxW-kO-OaS" firstAttribute="trailing" secondItem="15s-0P-dKf" secondAttribute="trailing" priority="750" constant="30" id="ZDj-2N-F2b"/>
+                            <constraint firstItem="sih-M0-dCv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zxW-kO-OaS" secondAttribute="leading" symbolic="YES" id="g51-C5-jWk"/>
+                            <constraint firstItem="15s-0P-dKf" firstAttribute="centerX" secondItem="zxW-kO-OaS" secondAttribute="centerX" id="hVr-Z4-Gqi"/>
+                            <constraint firstItem="c5T-g8-DaN" firstAttribute="leading" secondItem="iox-tL-pI9" secondAttribute="trailing" constant="30" id="iml-sa-JUc"/>
+                            <constraint firstItem="iox-tL-pI9" firstAttribute="centerY" secondItem="sih-M0-dCv" secondAttribute="centerY" id="jxM-eR-OyF"/>
+                            <constraint firstItem="aks-Ek-odm" firstAttribute="centerX" secondItem="zxW-kO-OaS" secondAttribute="centerX" id="knC-hE-XzJ"/>
+                            <constraint firstItem="3zD-f2-YJG" firstAttribute="centerX" secondItem="zxW-kO-OaS" secondAttribute="centerX" id="n6i-ip-AIE"/>
+                            <constraint firstItem="sih-M0-dCv" firstAttribute="top" secondItem="zxW-kO-OaS" secondAttribute="top" constant="16" id="pyR-g5-R2g"/>
+                            <constraint firstItem="zxW-kO-OaS" firstAttribute="bottom" secondItem="3zD-f2-YJG" secondAttribute="bottom" constant="16" id="tqN-sx-9YQ"/>
+                            <constraint firstItem="15s-0P-dKf" firstAttribute="leading" secondItem="zxW-kO-OaS" secondAttribute="leading" priority="750" constant="30" id="wXv-et-2WX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zxW-kO-OaS"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="S5R-c9-HwZ" id="ETr-r1-k6j"/>
+                        <outlet property="cameraCaptureButton" destination="3zD-f2-YJG" id="Tav-pO-IBW"/>
+                        <outlet property="cameraSwitchButton" destination="pZv-DV-hRz" id="wLa-gS-gh4"/>
+                        <outlet property="cameraView" destination="8bC-Xf-vdC" id="vnJ-5S-CNS"/>
+                        <outlet property="lastImageView" destination="aks-Ek-odm" id="0qk-VH-498"/>
+                        <outlet property="philipsHueButton" destination="c5T-g8-DaN" id="VnQ-c2-Y2U"/>
+                        <outlet property="retakeButton" destination="sih-M0-dCv" id="0W9-UF-Y2h"/>
+                        <outlet property="shareButton" destination="iox-tL-pI9" id="nZq-4U-Eel"/>
+                        <outlet property="squareOverlay" destination="15s-0P-dKf" id="ssk-3N-Of8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-324" y="276"/>
+        </scene>
+        <!--Push Link View Controller-->
+        <scene sceneID="PxA-P8-uEK">
+            <objects>
+                <viewController storyboardIdentifier="PushLinkViewController" id="NBT-rM-Dke" customClass="PushLinkViewController" customModule="FaceAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N1j-4q-Of8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="NDx-Ls-YiQ">
+                                <rect key="frame" x="36" y="756" width="303" height="2"/>
+                                <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="trackTintColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="press_smartbridge" translatesAutoresizingMaskIntoConstraints="NO" id="8oW-wn-aZt">
+                                <rect key="frame" x="20" y="261" width="335" height="475"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the push-link button of the Hue bridge you want to connect to." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHZ-f2-F8Q">
+                                <rect key="frame" x="20" y="64" width="335" height="197"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NDx-Ls-YiQ" firstAttribute="leading" secondItem="N1j-4q-Of8" secondAttribute="leadingMargin" constant="20" id="1iT-v6-1uQ"/>
+                            <constraint firstItem="fHZ-f2-F8Q" firstAttribute="top" secondItem="o3z-1P-heh" secondAttribute="top" constant="20" id="1qi-Hh-pgc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NDx-Ls-YiQ" secondAttribute="trailing" constant="20" id="5md-hB-Wsn"/>
+                            <constraint firstItem="fHZ-f2-F8Q" firstAttribute="leading" secondItem="o3z-1P-heh" secondAttribute="leading" constant="20" id="Rr8-aU-qrr"/>
+                            <constraint firstItem="o3z-1P-heh" firstAttribute="trailing" secondItem="8oW-wn-aZt" secondAttribute="trailing" constant="20" id="V9M-DC-qp6"/>
+                            <constraint firstItem="o3z-1P-heh" firstAttribute="trailing" secondItem="fHZ-f2-F8Q" secondAttribute="trailing" constant="20" id="WsE-Pz-Crp"/>
+                            <constraint firstItem="o3z-1P-heh" firstAttribute="bottom" secondItem="NDx-Ls-YiQ" secondAttribute="bottom" constant="20" id="adj-Nd-0OW"/>
+                            <constraint firstItem="8oW-wn-aZt" firstAttribute="top" secondItem="fHZ-f2-F8Q" secondAttribute="bottom" id="lkF-43-7Qm"/>
+                            <constraint firstItem="8oW-wn-aZt" firstAttribute="leading" secondItem="o3z-1P-heh" secondAttribute="leading" constant="20" id="sbJ-yi-tJm"/>
+                            <constraint firstItem="NDx-Ls-YiQ" firstAttribute="top" secondItem="8oW-wn-aZt" secondAttribute="bottom" constant="20" id="xj7-Fi-Aru"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o3z-1P-heh"/>
+                    </view>
+                    <connections>
+                        <outlet property="progressView" destination="NDx-Ls-YiQ" id="4BX-fS-9u6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="quc-cb-QfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1396" y="276"/>
+        </scene>
+        <!--Connect Bridge-->
+        <scene sceneID="hFP-gC-Lxz">
+            <objects>
+                <viewController storyboardIdentifier="BridgeConnectionViewController" id="bHI-z8-5Mz" customClass="BridgeConnectionViewController" customModule="FaceAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EYx-eT-qdb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="COB-Lt-Hpa">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BridgeCell" textLabel="RzB-en-sse" detailTextLabel="A33-Cr-Vkd" style="IBUITableViewCellStyleSubtitle" id="Wpf-z1-YcR" customClass="BridgeSelectionTableViewCell" customModule="FaceAnalysis" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wpf-z1-YcR" id="tzi-ZB-2x5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RzB-en-sse">
+                                                    <rect key="frame" x="15" y="5" width="33.333333333333336" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A33-Cr-Vkd">
+                                                    <rect key="frame" x="14.999999999999996" y="25.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bHI-z8-5Mz" id="rVK-0k-QOP"/>
+                                    <outlet property="delegate" destination="bHI-z8-5Mz" id="yDM-TS-sTR"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="COB-Lt-Hpa" firstAttribute="top" secondItem="kK6-5s-leu" secondAttribute="top" id="DGT-Nv-PdQ"/>
+                            <constraint firstItem="COB-Lt-Hpa" firstAttribute="trailing" secondItem="kK6-5s-leu" secondAttribute="trailing" id="lOl-Y5-gHg"/>
+                            <constraint firstItem="COB-Lt-Hpa" firstAttribute="bottom" secondItem="kK6-5s-leu" secondAttribute="bottom" id="wF0-25-vk1"/>
+                            <constraint firstItem="COB-Lt-Hpa" firstAttribute="leading" secondItem="kK6-5s-leu" secondAttribute="leading" id="zBu-NV-syR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kK6-5s-leu"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Connect Bridge" id="6Y2-WQ-Mg2">
+                        <barButtonItem key="leftBarButtonItem" image="ic_close" id="bCM-vM-WZS">
+                            <inset key="imageInsets" minX="-22" minY="1" maxX="0.0" maxY="-9"/>
+                            <inset key="largeContentSizeImageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="closeBridgeSelection:" destination="bHI-z8-5Mz" id="ZuT-q9-moY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="6hF-DM-FRN">
+                            <inset key="imageInsets" minX="0.0" minY="4" maxX="-10" maxY="-4"/>
+                            <connections>
+                                <action selector="refreshAction:" destination="bHI-z8-5Mz" id="F3L-FU-tBX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="refreshButton" destination="6hF-DM-FRN" id="1jy-Vu-pQU"/>
+                        <outlet property="tableView" destination="COB-Lt-Hpa" id="zlj-Nt-5c9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VG0-GL-rQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="558" y="276"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera-capture-white-full" width="127" height="126"/>
+        <image name="camera-switch-white" width="75" height="75"/>
+        <image name="ic_close" width="75" height="75"/>
+        <image name="icons8-share-rounded-90" width="180" height="180"/>
+        <image name="idea-256" width="192" height="192"/>
+        <image name="press_smartbridge" width="516" height="475"/>
+        <image name="restart-icon-18-256" width="192" height="192"/>
+    </resources>
+</document>

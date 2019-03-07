@@ -1,0 +1,43 @@
+PODS:
+  - Alamofire (4.8.0)
+  - AWSCore (2.7.3)
+  - AWSS3 (2.7.3):
+    - AWSCore (= 2.7.3)
+  - Crashlytics (3.11.1):
+    - Fabric (~> 1.8.1)
+  - Fabric (1.8.2)
+  - ProjectOxfordFace (1.4.1)
+  - PubNub (4.8.3):
+    - PubNub/Core (= 4.8.3)
+  - PubNub/Core (4.8.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - AWSS3
+  - Crashlytics
+  - Fabric
+  - ProjectOxfordFace
+  - PubNub (~> 4)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AWSCore
+    - AWSS3
+    - Crashlytics
+    - Fabric
+    - ProjectOxfordFace
+    - PubNub
+
+SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  AWSCore: 02d9ae2b6c2aaba6077fee2b09b0a62fb9b80282
+  AWSS3: 96488eeaae6059d5252a7065b2010f846bdafe14
+  Crashlytics: ca7ab4bc304aa216bdc2e4c1a96389ee77252203
+  Fabric: d2b22f443ba195d8a7cc204da230977c72733b40
+  ProjectOxfordFace: fa7d7adbc9a11203be61a6a80511101b5dbf6ce4
+  PubNub: 871d2a12d790d646e84c0b035acbf9ee6610ea70
+
+PODFILE CHECKSUM: 45d5a8c8f95e8d232e2ebd369a52ead29ffb1faf
+
+COCOAPODS: 1.5.3
