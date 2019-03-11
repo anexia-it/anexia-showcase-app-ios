@@ -1,16 +1,16 @@
 # ANX Face App
 
+
 Table of Contents
 =================
 
-* [ANX Face App](#anx-face-app)
 * [Philips HUE](#philips-hue)
 * [Alexa](#alexa)
 * [PubNub](#pubnub)
 * [AWS Lambda](#aws-lambda)
 * [Configuration](#configuration)
 
-This app uses multiple external API's for the following use case:
+This app uses multiple external API's for the following use cases:
 
 - the user opens the App and sees a camera viewfinder
 - the user shoots a picture of his face
@@ -31,10 +31,10 @@ The App connects to PubNub for enabling notifications from Alexa. An Alexa skill
 
 The resulting flow would be:
 
-User: "Alexa, start the face recognition"
-Alexa: "Ready"
-User: "Shoot a picture"
-Alexa: "Done"
+* User: "Alexa, start the face recognition"
+* Alexa: "Ready"
+* User: "Shoot a picture"
+* Alexa: "Done"
 
 Afte that the configured Alexa skill would call an AWS Lambda function which published to a PubSub channel. The App itself listens on the same channel. When the message arrives the App shoots a picture.
 
@@ -52,8 +52,8 @@ The Alexa skill is running on an AWS Lambda function. The Python code for the La
 
 In order to activate all features some API keys need to be addd in the Config.plist file:
 
-pubNubPublishKey: Create a free account on PubNub and add the publish key here
-pubNubSubscribeKey: Create a free account on PubNub and add the subscribe key here
-faceApiKey: Create a free account for the Microsoft Face API and add the API key here
-accessKeyS3: Create an Anexia S3 account and add the accessKey here
-secretKeyS3: Create an Anexia S3 account and add the secretKey here
+* pubNubPublishKey: Create a free account on PubNub and add the publish key here
+* pubNubSubscribeKey: Create a free account on PubNub and add the subscribe key here
+* faceApiKey: Create a free account for the Microsoft Face API and add the API key here
+* accessKeyS3: Create an Anexia S3 account and add the accessKey here
+* secretKeyS3: Create an Anexia S3 account and add the secretKey here
