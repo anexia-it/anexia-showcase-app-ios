@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AWSS3
 
 protocol ImageUploadServiceProtocol {
     func upload(image : UIImage, with fileName: String, forShare: Bool, completionHandler: @escaping ((_ success:Bool,_ link:String)->Void))
@@ -16,8 +17,22 @@ protocol ImageUploadServiceProtocol {
 /// Everything related to uploaded images to any web service.
 class ImageUploadService: ImageUploadServiceProtocol {
     private let log = Logger()
-    
-    /// Uploads image to a temprary Web Service. TODO: this shall be replaced with S3 upload
+    private let accessKey: String
+    private let secretKey: String
+    private let bucketName: String
+
+    init(accessKey: String, secretKey: String, bucketName: String) {
+        self.accessKey = accessKey
+        self.secretKey = secretKey
+        self.bucketName = bucketName
+
+        let credentialsProvider = AWSStaticCredentialsProvider(accessKey: accessKey, secretKey: secretKey)
+        let configuration = AWSServiceConfiguration(region: AWSRegionType.EUCentral1, credentialsProvider: credentialsProvider)
+
+        AWSServiceManager.default()?.defaultServiceConfiguration = configuration
+    }
+
+    /// Uploads a image to AWS S3 Storage
     ///
     /// - Parameters:
     ///   - image: the image for uploading
@@ -25,54 +40,51 @@ class ImageUploadService: ImageUploadServiceProtocol {
     ///   - forShare: true if the file should be shared afterwards, otherwise false
     ///   - completionHandler: the completion handler
     func upload(image : UIImage, with fileName: String, forShare: Bool, completionHandler: @escaping ((_ success:Bool,_ link:String)->Void)){
-        let url = forShare ? URL(string: "http://anexia.safakli.com/uploadshare.php") :  URL(string: "http://anexia.safakli.com/upload.php")
-        let request = NSMutableURLRequest(url: url!)
-        request.httpMethod = "POST"
-        let boundary = "Boundary-\(UUID().uuidString)"
+        let transferUtility = AWSS3TransferUtility.default()
         
-        request.setValue("multipart/form-data; boundary=\(boundary)",forHTTPHeaderField: "Content-Type")
+        //Add prefix to fileName if it is for sharing
+        let key = forShare ? "share/" + fileName : fileName
         
-        let image_data = image.jpegData(compressionQuality: 0.5)
-        guard image_data != nil else {
+        //Convert UIImage to data
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else{
+            log.error("Error during converting UIImage to jpeg")
             return
         }
         
-        let body = NSMutableData()
-        let fname = fileName
-        let contentType = "multipart/form-data; boundary=\(boundary)"
-        let mimetype = "image/jpg"
-        
-        body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
-        body.append("Content-Disposition:form-data; name=\"file\"; filename=\"\(fname)\"\r\n".data(using: String.Encoding.utf8)!)
-        body.append("Content-Type: \(mimetype)\r\n\r\n".data(using: String.Encoding.utf8)!)
-        body.append(image_data!)
-        body.append("\r\n--\(boundary)--\r\n".data(using: String.Encoding.utf8)!)
-        
-        request.setValue(contentType, forHTTPHeaderField: "Content-Type")
-        request.setValue("\(body.length)", forHTTPHeaderField: "Content-Length")
-        request.httpBody = body as Data
-        
-        let session = URLSession.shared
-        let uploadTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
-            guard error == nil else {
-                self.log.info("error while uploadTask \(String(describing: error))")
-                completionHandler(false,"error while uploadTask \(error.debugDescription).")
-                return
+        //Completion handler of the upload request
+        let uploadCompletionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock? = { (task, error) -> Void in
+            if let error = error {
+                self.log.error("Upload failed with error: (\(error))")
+                completionHandler(false, "")
             }
-            guard data != nil else {
-                self.log.info("no data at uploadTask")
-                completionHandler(false,"Got no response from Imagecloud.")
-                return
-            }
-            if let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) {
-                
-                if dataString == "success"{
-                    completionHandler(true, forShare ? "http://anexia.safakli.com/Uploads/share/\(fileName)" : "http://anexia.safakli.com/Uploads/\(fileName)")
-                } else {
-                    completionHandler(false,String(dataString))
+            else{
+                // Image url from S3
+                let awsEndpointUrl = AWSS3.default().configuration.endpoint.url
+                let publicURL = awsEndpointUrl?.appendingPathComponent(self.bucketName).appendingPathComponent(key)
+                if let imageURLString = publicURL?.absoluteString {
+                    self.log.info("Uploaded to: \(imageURLString)")
+                    completionHandler(true, imageURLString)
+                }
+                else{
+                    completionHandler(false, "")
                 }
             }
-        })
-        uploadTask.resume()
+        }
+
+        //Start the upload to S3
+        transferUtility.uploadData(imageData,
+                                   bucket: bucketName,
+                                   key: key,
+                                   contentType: "image/jpeg",
+                                   expression: nil,
+                                   completionHandler: uploadCompletionHandler).continueWith { (task) -> Any? in
+
+                                    //Check if there was an error (e.g. invalid credentials or bucket)
+                                    if let error = task.error{
+                                        self.log.error(error)
+                                        completionHandler(false, "")
+                                    }
+                                    return nil
+        }
     }
 }

@@ -226,6 +226,7 @@ class FaceCameraViewController: UIViewController {
             self.retakeButton.isHidden = true
             self.shareButton.isHidden = true
             self.activityIndicator.isHidden = true
+            self.philipsHueButton.isHidden = true
             self.lastImageView.isHidden = false
             
             var screenshotImage :UIImage?
@@ -243,6 +244,7 @@ class FaceCameraViewController: UIViewController {
             self.activityIndicator.isHidden = false
             self.retakeButton.isHidden = false
             self.shareButton.isHidden = false
+            self.philipsHueButton.isHidden = false
             self.shareButton.isEnabled = true
         }
     }

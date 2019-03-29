@@ -16,6 +16,7 @@ protocol ConfigurationProtocol {
     var faceApiURL: String { get }
     var accessKeyS3: String { get }
     var secretKeyS3: String { get }
+    var bucketNameS3: String { get }
 }
 
 fileprivate struct Config: Codable {
@@ -26,6 +27,7 @@ fileprivate struct Config: Codable {
     let faceApiURL: String
     let accessKeyS3: String
     let secretKeyS3: String
+    let bucketNameS3: String
 }
 
 
@@ -71,4 +73,9 @@ extension Configuration: ConfigurationProtocol {
     var secretKeyS3: String  {
         return self.config.secretKeyS3
     }
+
+    var bucketNameS3: String {
+        return self.config.bucketNameS3
+    }
+
 }

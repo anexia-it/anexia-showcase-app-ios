@@ -25,7 +25,7 @@ class FaceCameraBuilder {
                                             imageCaptureService: ImageCaptureService(),
                                             philipsHueService: dependencyContainer.philipsHueService,
                                             faceAnalysisService: dependencyContainer.faceAnalysisService,
-                                            imageUploadService: ImageUploadService())
+                                            imageUploadService: dependencyContainer.imageUploadService)
         view.viewModel = viewModel
         return view
     }
