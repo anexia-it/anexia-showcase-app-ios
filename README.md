@@ -15,7 +15,7 @@ This app uses multiple external API's for the following use cases:
 
 - the user opens the App and sees a camera viewfinder
 - the user shoots a picture of his face
-- the App uploads the Picture to an Anexia S3 bucket
+- the App uploads the Picture to an S3 bucket
 - the App then calls the Microsoft Face API and send the URL of the former uploaded image on the S3 bucket
 - Microsoft Face API responds on success with a JSON with Face recognition values like emotion, gender, age, etc..
 - the App renders the result on the image and the user is able to share the image with the in place rendered values for emotion, gender and age
@@ -56,5 +56,6 @@ In order to activate all features some API keys need to be addd in the Config.pl
 * pubNubPublishKey: Create a free account on PubNub and add the publish key here
 * pubNubSubscribeKey: Create a free account on PubNub and add the subscribe key here
 * faceApiKey: Create a free account for the Microsoft Face API and add the API key here
-* accessKeyS3: Create an Anexia S3 account and add the accessKey here
-* secretKeyS3: Create an Anexia S3 account and add the secretKey here
+* accessKeyS3: Create an S3 account and add the accessKey here
+* secretKeyS3: Create an S3 account and add the secretKey here
+* bucketNameS3: Create an S3 bucket and add its name here

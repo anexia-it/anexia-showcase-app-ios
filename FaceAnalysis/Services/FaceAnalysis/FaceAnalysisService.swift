@@ -56,10 +56,7 @@ public class FaceAnalysisService: FaceAnalysisServiceProtocol {
     func createImageName() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "ddMMYYYY-HHmmss"
-        let string = formatter.string(from: Date())
-        let dt = formatter.date(from: string)
-        formatter.dateFormat = "ddMMYYYY-HHmmss"
-        return "IMG"+formatter.string(from: dt!) + ".jpg"
+        return "IMG\(formatter.string(from: Date())).jpg"
     }
     
     

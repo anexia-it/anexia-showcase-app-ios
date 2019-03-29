@@ -14,6 +14,7 @@ protocol DependencyContainerProtocol {
     var faceAnalysisService: FaceAnalysisServiceProtocol { get }
     var userDefaults: UserDefaults { get }
     var philipsHueService: PhilipsHueServiceProtocol { get }
+    var imageUploadService: ImageUploadService { get }
 }
 
 /// Holds all shared dependencies for the Application.
@@ -37,6 +38,13 @@ class DependencyContainer: DependencyContainerProtocol {
             faceApiURL: self.configuration.faceApiURL
         )
     
+    private(set) lazy var imageUploadService: ImageUploadService =
+        ImageUploadService(
+            accessKey: self.configuration.accessKeyS3,
+            secretKey: self.configuration.secretKeyS3,
+            bucketName: self.configuration.bucketNameS3
+    )
+
     /// Using own user defaults instead of UserDefaults.standards enables unit testing of UserDefaults.
     /// In the corresponding unit test another user default is created and so we have isolated tests.
     private(set) lazy var userDefaults: UserDefaults = UserDefaults(suiteName: self.configuration.userDefaultsName)!
